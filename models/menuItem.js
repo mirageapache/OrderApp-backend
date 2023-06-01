@@ -10,7 +10,7 @@ const menuItemSchema = new Schema({
   // 餐點說明
   description:{
     type: String,
-    required: false
+    required: true
   },
   // 價格
   price:{
@@ -24,11 +24,11 @@ const menuItemSchema = new Schema({
   },
   // 客製選項
   customOption:{
-    type: Object,
+    type: String,
     required: false
   },
   // 圖片
-  imgPath:{
+  imgName:{
     type: String,
     required: false
   }

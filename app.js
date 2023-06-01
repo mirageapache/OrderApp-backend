@@ -4,7 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const port = process.env.port || 3001
 
-const MenuItem = require('./models/menuItem.js') // 載入menuItem
+const routes = require('./routes')// 載入路由設定
 
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
 if (process.env.NODE_ENV !== 'production') {
@@ -26,15 +26,9 @@ db.once('open', () => {console.log('mongodb connected!')})
 db.on('error', () => {console.log('mongodb error!')})
 
 // 路由設定
-app.get('/menulist', (req,res) => {
-  MenuItem.find()
-  .lean()
-  .then(menuList => {
-    res.json(menuList) //回傳Menu List資料
-  })
-  .catch(error => console.log(error))
-})
-
+app.use(routes)
+ 
+// 伺服器監聽
 app.listen(port, () =>{
   console.log(`Express is running on http://localhost:${port}`)
 })
