@@ -8,9 +8,9 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 const db = mongoose.connection
 
 const menuList = [
-  // {"name":"鮪魚蛋餅", "price":30, "imgPath":"images/tuna-egg-cake.jpg"},
-  // {"name":"起司蛋餅", "price":30, "imgPath":"images/cheese-egg-cake.jpg"},
-  // {"name":"嫩煎雞腿堡", "price":50, "imgPath":"images/chicken-burger.jpg"},
+  // {"name":"鮪魚蛋餅", "price":30, "imgName":"images/tuna-egg-cake.jpg"},
+  // {"name":"起司蛋餅", "price":30, "imgName":"images/cheese-egg-cake.jpg"},
+  // {"name":"嫩煎雞腿堡", "price":50, "imgName":"images/chicken-burger.jpg"},
 ]
 
 db.once('open', () => {
@@ -20,7 +20,7 @@ db.once('open', () => {
       name: menuList[i].name,
       description: '',
       price: menuList[i].price,
-      imgPath: menuList[i].img
+      imgName: menuList[i].img
     })
   }
   console.log('seeds create completed')

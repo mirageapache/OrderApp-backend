@@ -28,7 +28,7 @@ const menuItemSchema = new Schema({
     required: false
   },
   // 圖片
-  imgPath:{
+  imgName:{
     type: String,
     required: false
   }
