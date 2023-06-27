@@ -13,6 +13,17 @@ router.get('/', (req,res) => {
   .catch(error => console.log(error))
 })
 
+//取得特定餐點資料
+router.get('/:id', (req,res) => {
+  const id = req.params.id;
+  MenuItem.findById(id)
+  .lean()
+  .then(menuItem => {
+    res.json(menuItem) //回傳Menu Item資料
+  })
+  .catch(error => console.log(error))
+})
+
 // 新增餐點項目
 router.post ('/create', (req, res) => {
   const {name,description,price,itemType,customOption,imgName} = req.body

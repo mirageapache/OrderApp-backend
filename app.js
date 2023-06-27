@@ -30,5 +30,5 @@ app.use(routes)
  
 // 伺服器監聽
 app.listen(port, () =>{
-  console.log(`Express is running on http://localhost:${port}`)
+  console.log(`Express server is online!, at port:${port}`)
 })

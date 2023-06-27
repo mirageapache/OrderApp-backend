@@ -24,7 +24,7 @@ const menuItemSchema = new Schema({
   },
   // 客製選項
   customOption:{
-    type: String,
+    type: [String],
     required: false
   },
   // 圖片
